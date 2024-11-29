@@ -187,9 +187,9 @@ Pom.xml
 
 6.	Create a TestRunner file under src\test\java\runnerFiles
 
--	Mention path of feature file where it is placed under @CucumberOptions
--	In glue mention stepDefinitions file
--	Add plugin for cucumber reporting
+		1.Mention path of feature file where it is placed under @CucumberOptions
+		2.In glue mention stepDefinitions file
+		3.Add plugin for cucumber reporting
 
 package runnerFiles;
 
@@ -213,7 +213,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 
 7.	Build the Project: Run the following command to download dependencies and build the project:
-      mvn clean install 
+      		mvn clean install 
   
 8.  Database Setup
      Create the Database: Log in to MySQL and create the required database <etldb> and table:
@@ -222,10 +222,11 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 
 9.	Update Connection Details: In DataExtractionStepDefs.java, update the connection details:
-      String url = "jdbc:mysql://localhost:3306/etldb"; String username = "root"; String password = "root"; 
+    
+      	String url = "jdbc:mysql://localhost:3306/etldb"; String username = "root"; String password = "root"; 
 
 
-10.  Running the Tests
+11.  Running the Tests
         Run the Cucumber tests using your IDE or the Maven command or using testNG :
                   Mvn test
 
