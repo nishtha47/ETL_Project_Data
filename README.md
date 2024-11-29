@@ -1,7 +1,9 @@
+# Project-ETL-Cucumber-TestNG
+
 Data Extraction and Loading Pipeline with Cucumber and MySQL
 This project demonstrates a robust and reproducible data extraction and loading pipeline using Cucumber for behavior-driven development (BDD) and MySQL as the target database. It showcases best practices for data handling, transformation, and database interaction within a structured, testable framework.
 ________________________________________
-Project Components
+**Project Components**
 1.	data_extraction.feature: This Cucumber feature file defines the acceptance criteria for the data pipeline using Gherkin syntax. It outlines a scenario where data is extracted from a CSV file, transformed, and loaded into the database.
 2.	DataExtractionStepDefs.java: This Java class contains the step definitions that implement the steps described in the feature file. It handles:
 •	Data extraction from the CSV file.
@@ -10,19 +12,19 @@ Project Components
 •	Verification of successful data loading.
 3.	DataRecord.java: Represents a single record of data, with attributes for id, name, and value. This ensures a structured format for handling transformed data.
 ________________________________________
-Key Features and Benefits
+**Key Features and Benefits**
 •	Behavior-Driven Development (BDD): The use of Cucumber ensures clear understanding of desired behavior through well-defined acceptance criteria.
 •	Structured Data Transformation: Converts raw CSV data into structured DataRecord objects for efficient processing.
 •	Efficient Database Interaction: Demonstrates best practices for MySQL connections, query execution, and result handling.
 •	Testability and Maintainability: Modular design ensures easy testing and updates.
 ________________________________________
-Technical Implementation
+**Technical Implementation**
 •	Data Extraction: Reads data from a CSV file, parsing each row for processing.
 •	Data Transformation: Converts extracted data into DataRecord objects.
 •	Database Loading: Inserts transformed data into a MySQL data_table using prepared statements.
 •	Verification: Validates successful data loading by comparing expected and actual database record counts.
 ________________________________________
-Getting Started
+**Getting Started**
 1. Prerequisites
 •	Java Development Kit (JDK) (Version 8 or above).
 •	Maven Build Tool.
@@ -44,7 +46,7 @@ Create and set up a Maven project with the following steps:
 
 2.	Add Dependencies to pom.xml: Add the required dependencies for Cucumber, JUnit, MySQL
 
-Pom.xml
+**Pom.xml**
 
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -212,26 +214,26 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 }
 
 
-7.	Build the Project: Run the following command to download dependencies and build the project:
+7.	**Build the Project**: Run the following command to download dependencies and build the project:
       		mvn clean install 
   
-8.  Database Setup
+8.  **Database Setup**
      Create the Database: Log in to MySQL and create the required database <etldb> and table:
 
        CREATE DATABASE etldb; USE etldb; CREATE TABLE data_table ( id INT PRIMARY KEY, name VARCHAR(255), value DOUBLE ); 
 
 
-9.	Update Connection Details: In DataExtractionStepDefs.java, update the connection details:
+9.	**Update Connection Details**: In DataExtractionStepDefs.java, update the connection details:
     
       	String url = "jdbc:mysql://localhost:3306/etldb"; String username = "root"; String password = "root"; 
 
 
-11.  Running the Tests
+11.  **Running the Tests**
         Run the Cucumber tests using your IDE or the Maven command or using testNG :
                   Mvn test
 
 
-Snapshot of Cucumber Report
+## Snapshot of Cucumber Report
 
 
 ![CucumberReport](https://github.com/user-attachments/assets/1cb5a0e7-7813-41a6-82f9-a99bd3750629)
