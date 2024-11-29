@@ -1,4 +1,4 @@
-# Project-ETL-Cucumber-TestNG
+# Project-ETL-Cucumber-Maven-TestNG
 
 Data Extraction and Loading Pipeline with Cucumber and MySQL
 This project demonstrates a robust and reproducible data extraction and loading pipeline using Cucumber for behavior-driven development (BDD) and MySQL as the target database. It showcases best practices for data handling, transformation, and database interaction within a structured, testable framework.
