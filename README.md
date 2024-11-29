@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b1161bb0-28e9-40c9-9fab-e1252ed8b67a)Data Extraction and Loading Pipeline with Cucumber and MySQL
+Data Extraction and Loading Pipeline with Cucumber and MySQL
 This project demonstrates a robust and reproducible data extraction and loading pipeline using Cucumber for behavior-driven development (BDD) and MySQL as the target database. It showcases best practices for data handling, transformation, and database interaction within a structured, testable framework.
 ________________________________________
 Project Components
