@@ -1,0 +1,11 @@
+PatientID	PatientName	ClaimID	ClaimAmount
+P001	John Doe	C12345	1000.50
+P002	Jane Smith	C12346	1500.75
+P003	Michael Johnson	C12347	2000.00
+P004	Emily Davis	C12348	2500.25
+P005	David Lee	C12349	3000.10
+P006	Susan Clark	C12350	3500.20
+P007	James Wilson	C12351	4000.00
+P008	Olivia Brown	C12352	4500.80
+P009	William Moore	C12353	5000.40
+P010	Isabella Taylor	C12354	5500.60

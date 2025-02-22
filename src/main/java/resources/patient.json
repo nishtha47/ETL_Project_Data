@@ -1,0 +1,14 @@
+[
+    {
+        "PatientID": "P001",
+        "PatientName": "John Doe",
+        "ClaimID": "1001",
+        "ClaimAmount": "5000"
+    },
+    {
+        "PatientID": "P002",
+        "PatientName": "Jane Smith",
+        "ClaimID": "1002",
+        "ClaimAmount": "7000"
+    }
+]
