@@ -1,36 +1,25 @@
 package cucumber_maven.utils;
 
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Logbook {
 
-    private static final String LOG_FILE = "model_logbook.txt"; 
+    private static final Logger logger = LoggerFactory.getLogger(Logbook.class);
 
     public static void log(String message) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE, true))) {
-            String timestamp = LocalDateTime.now().toString();
-            writer.write(timestamp + " - " + message + "\n");
-        } catch (IOException e) {
-            System.err.println("Error writing to log file: " + e.getMessage());
-        }
+        logger.info(message);
     }
-    
- // Example method to log the start of a step
+
     public static void logStepStart(String stepName) {
-        log("Starting step: " + stepName);
+        logger.info("Starting step: " + stepName);
     }
 
-    // Example method to log the end of a step
     public static void logStepEnd(String stepName) {
-        log("Completed step: " + stepName);
+        logger.info("Completed step: " + stepName);
     }
 
-    // Method to log errors or exceptions
-    public static void logError(String errorMessage) {
-        log("ERROR: " + errorMessage);
+    public static void logError(String errorMessage, Throwable throwable) {
+        logger.error("ERROR: " + errorMessage, throwable);
     }
 }

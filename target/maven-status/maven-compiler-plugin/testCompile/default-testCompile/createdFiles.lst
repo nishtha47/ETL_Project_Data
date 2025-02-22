@@ -1,5 +1,4 @@
-stepDefinitions\DataRecord.class
+stepDefinitions\BookStepDefinitions.class
 models\Claim.class
 runnerFiles\TestRunner.class
 stepDefinitions\Datavalidationsteps.class
-stepDefinitions\DataExtractionStepDefs.class

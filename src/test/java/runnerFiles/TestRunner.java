@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = {"src/test/java/cucumber_maven/featurestest"},
         glue = {"stepDefinitions"},
-        tags = "@api",
+        tags = "@data",
         plugin = {"pretty", "html:target/cucumber-reports.html"},
        monochrome = true
 )

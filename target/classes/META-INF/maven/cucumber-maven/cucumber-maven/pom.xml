@@ -15,8 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
   </properties>
-
-  <dependencyManagement>
+<dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.junit</groupId>
@@ -27,12 +26,40 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+<dependencies>
+  <!-- Log4j API -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.20.0</version> <!-- Use the latest version -->
+    </dependency>
 
-  <dependencies>
+    <!-- Log4j Core (Required for Log4j2 functionality) -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.20.0</version> <!-- Use the latest version -->
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.32</version>
+</dependency>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.11</version>
+</dependency>
+<!-- Logback Core -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.2.11</version>
     </dependency>
     <!-- Optionally: parameterized tests support -->
     <dependency>
@@ -127,6 +154,14 @@
     </dependencies>
 
   <build>
+   <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>logback.xml</include>
+            </includes>
+        </resource>
+    </resources>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -146,6 +181,10 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.3.0</version>
+          <configuration>
+        <redirectTestOutputToFile>false</redirectTestOutputToFile>
+    </configuration>
+
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
