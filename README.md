@@ -4,6 +4,7 @@
 This repository contains automated data validation scenarios implemented using the Cucumber framework. The tests ensure data accuracy, consistency, and integrity across various use cases. The framework is built using Java, Selenium, Cucumber, and TestNG/JUnit, along with data handling utilities for robust validation.
 
 Feature File 1: Data Validation Scenarios after Merging 3 Files into One 
+
 Feature File 2: Validating the API Response data using cucumber framework
 
 ________________________________________
@@ -19,6 +20,7 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
  *Validate Missing Patient Data*
  
    Purpose: Ensures that no mandatory fields are missing and that claim amounts are valid.
+   
      🔹Steps:
 
 		1.Load merged patient data
@@ -27,7 +29,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: No missing fields, and all claim amounts must be valid.
  
    *Validate PatientID Uniqueness*
-	Purpose: Ensures that every patient has a unique PatientID.
+   
+Purpose: Ensures that every patient has a unique PatientID.
+ 
 	🔹 Steps:
 
 		Extract PatientID values from merged data
@@ -35,7 +39,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: No duplicate PatientIDs should exist.
  
    *Validate PatientName Length*
- 	Purpose: Ensures that patient names have a reasonable length (not too short or too long).
+   
+ Purpose: Ensures that patient names have a reasonable length (not too short or too long).
+ 
 		🔹 Steps:
 
 			Extract PatientName
@@ -43,7 +49,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: Patient names must be between 2 and 50 characters.
  
 *Validate PatientName Contains No Special Characters*
- 	Purpose: Ensures PatientName only contains alphabetic characters (no special symbols like @, $, %, &, etc.).
+
+ Purpose: Ensures PatientName only contains alphabetic characters (no special symbols like @, $, %, &, etc.).
+ 
 	🔹 Steps:
 	
 		Extract PatientName
@@ -51,7 +59,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: No patient name should contain special characters.
  
 *Validate ClaimAmount Greater Than Zero*
- 	Purpose: Ensures that ClaimAmount is always greater than zero.
+
+ Purpose: Ensures that ClaimAmount is always greater than zero.
+ 
 		🔹 Steps:
 
 			Retrieve ClaimAmount from data
@@ -59,7 +69,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: All claim amounts should be greater than zero.
  
 *Validate ClaimAmount Not an Outlier*
-	Purpose: Prevents unrealistically high claim amounts.
+
+Purpose: Prevents unrealistically high claim amounts.
+
 		🔹 Steps:
 
 			Retrieve ClaimAmount
@@ -67,7 +79,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: No claim amount should exceed 1,000,000.
  
 *Validate ClaimAmount Logic for Specific ClaimID*
- 	Purpose: Ensures that ClaimAmount rules are followed for specific ClaimID values.
+
+ Purpose: Ensures that ClaimAmount rules are followed for specific ClaimID values.
+ 
 		🔹 Steps:
 
 			Retrieve ClaimAmount
@@ -75,7 +89,9 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	📌 Expectation: If a ClaimID starts with "A", the corresponding ClaimAmount must be at least $1000.
 
  *Validate ClaimID Format*
- 	Purpose: Ensures that ClaimIDs have a valid format.
+ 
+ Purpose: Ensures that ClaimIDs have a valid format.
+ 
 		🔹 Steps:
 
 			Extract ClaimID
@@ -88,17 +104,19 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	Data can be fetched from a database, an API, or a CSV/JSON file.
 	Assertions ensure compliance with rules.
 	Failures are logged for debugging.
- _
+________________________________________
 
 2.	ApiResponse.feature: The ApiResponse.feature file is part of a Cucumber-based API testing framework that validates the response of a web service retrieving book details by ISBN. It ensures that API responses are accurate, structured correctly, and follow expected  business logic.
 
    **Feature: Get Book by ISBN**
+   
 	This feature file contains multiple test cases that validate API responses when fetching book details using ISBN.
 
  
 ✅ Scenario 1: User calls web service to get a book by its ISBN
 
 🔹 Purpose: Ensures API returns a valid book record for a correct ISBN.
+
 🔹 Steps:
 
 	1.A book exists with ISBN: "9781451648546".
@@ -106,37 +124,45 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	3.Validate status code is 200 (successful response).
 	4.Ensure totalItems = 1 and kind = "books#volumes".
 	5.Validate book details (title, publisher, page count).
+ 
 📌 Expectation: API returns correct details in response.
 
 ✅ Scenario 2: Validate the Publisher Date Field
 
 🔹 Purpose: Checks if the published date is correctly returned.
+
 🔹 Steps:
 
 	1.Retrieve book details by ISBN.
 	2.Validate publishedDate = 2011.
+ 
 📌 Expectation: publishedDate should be 2011.
 
 ✅ Scenario 3: Validate Language Field in Response
 
 🔹 Purpose: Ensures the language field in response is correct.
+
 🔹 Steps:
 
 	1.Retrieve book details using ISBN: "9780451495081".
 	2.Validate totalItems = 1 and kind = "books#volumes".
 	3.Ensure title = "Steve Jobs" and language = "en".
+ 
 📌 Expectation: language field should be "en" (English).
 
 ✅ Scenario 4: Validate ISBN Field in Response
 
 🔹 Purpose: Ensures the correct ISBN is returned in the API response.
+
 🔹 Steps:
 
 	1.Retrieve book details for ISBN: "9781451648546".
 	2.Validate response includes ISBN = 9781451648546.
+ 
 📌 Expectation: API must return correct ISBN in response.
 
 ❌ Scenario 5: Validate Response for an Invalid ISBN (Negative Test)
+
 🔹 Purpose: Ensures API correctly handles invalid ISBN requests.
 🔹 Steps:
 
@@ -144,66 +170,73 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	2.Retrieve book details via API.
 	3.Validate status code is 400 (Bad Request).
 	4.Ensure response contains error message = "Invalid ISBN".
+ 
 📌 Expectation: API should return a 400 error with a message "Invalid ISBN" for incorrect ISBNs.
 
 
 3.	Datavalidationsteps.java: The Datavalidationsteps.java file defines step definitions for validating patient data after merging files. It ensures that the merged data adheres to specific business rules, such as uniqueness of PatientID, proper ClaimAmount values, and valid ClaimID formats.
 
     **Key Responsibilities of Datavalidationsteps.java**
+  	
 	1.Merge Patient Data using Filemerger.mergeFiles().
+  	
 	2.Check for missing or invalid fields (e.g., PatientID, ClaimAmount, PatientName).
+  	
 	3.Enforce data validation rules, including:
-	4.Uniqueness of PatientID
-	5.No special characters in PatientName
-	6.ClaimAmount greater than zero and within a reasonable range
-	7.Correct format of ClaimID
+  	
+		-Uniqueness of PatientID
+		-No special characters in PatientName
+		-ClaimAmount greater than zero and within a reasonable range
+	   	-Correct format of ClaimID
 
 	**Package Imports**
-		Key Libraries Used:
-		1.Cucumber Annotations (@Given, @When, @Then) – Define step mappings.
-		2.JUnit Assertions (Assert.fail()) – Enforce test failures when validation fails.
-		3.Logging (SLF4J Logger) – Tracks execution flow and errors.
-		4.File Processing (Filemerger.mergeFiles()) – Handles merging CSV files.
-		5.Collections (List, Set, Map) – Store and process patient data.
+  	
+		**Key Libraries Used:**
+  	
+			1.Cucumber Annotations (@Given, @When, @Then) – Define step mappings.
+			2.JUnit Assertions (Assert.fail()) – Enforce test failures when validation fails.
+			3.Logging (SLF4J Logger) – Tracks execution flow and errors.
+			4.File Processing (Filemerger.mergeFiles()) – Handles merging CSV files.
+			5.Collections (List, Set, Map) – Store and process patient data.
 
-4. BookStepDefinitions.java : This class implements Cucumber step definitions for testing a book retrieval API using RestAssured. It follows BDD (Behavior-Driven Development) principles to validate API responses.
+5. BookStepDefinitions.java : This class implements Cucumber step definitions for testing a book retrieval API using RestAssured. It follows BDD (Behavior-Driven Development) principles to validate API responses.
 
    Key Components:
+   
 	1. Class-Level Variables
-	request: Stores the RestAssured request specification.
-	response: Stores the API response.
-	apiEndpoint: The base API URL, loaded from a properties file.
-	isbn: Stores the ISBN of the book being queried.
+    
+		request: Stores the RestAssured request specification.
+		response: Stores the API response.
+		apiEndpoint: The base API URL, loaded from a properties file.
+		isbn: Stores the ISBN of the book being queried.
 
-	2. Initialization & Configuration
-	The constructor BookStepDefinitions() loads API properties from config.properties.
-	loadProperties(): Reads the API base URL from the properties file.
+	3. Initialization & Configuration
+    
+		The constructor BookStepDefinitions() loads API properties from config.properties.
+		loadProperties(): Reads the API base URL from the properties file.
 
         3. Step Definitions
-		Given Steps
-	@Given("a book exists with an isbn of {string}")
-		Sets up a request for a valid book with the given ISBN.
-	@Given("no book exists with an isbn of {string}")
-		Sets up a request for an invalid ISBN to test negative scenarios.
-	When Steps
-		@When("a user retrieves the book by isbn")
-		Sends a GET request to fetch book details using ISBN.
-	Then Steps
-		@Then("the status code is {int}")
-		Verifies the response status code.
-		@Then("response includes the following")
-	Asserts that the response contains expected key-value pairs.
-		@Then("response includes the following in any order")
-	Similar to the previous step but allows any order for values.
-	Additional Helper Methods
-	normalizePublisherDateValues(List<String> dateValues): Extracts only the year from a full date (e.g., "2022-05-10" → "2022"). 
+           
+			Given Steps
+				@Given("a book exists with an isbn of {string}")
+					Sets up a request for a valid book with the given ISBN.
+				@Given("no book exists with an isbn of {string}")
+					Sets up a request for an invalid ISBN to test negative scenarios.
+			When Steps
+				@When("a user retrieves the book by isbn")
+					Sends a GET request to fetch book details using ISBN.
+			Then Steps
+				@Then("the status code is {int}")
+					Verifies the response status code.
+				@Then("response includes the following")
+					Asserts that the response contains expected key-value pairs.
+				@Then("response includes the following in any order")
+					Similar to the previous step but allows any order for values.
+					Additional Helper Methods
 
-    Summary
-	Loads API configuration dynamically.
-	Sends requests to fetch book details by ISBN.
-	Validates response status code and expected values.
-	Handles both positive and negative test cases.
-	Uses assertions (assertThat) to ensure correctness.
+	4.normalizePublisherDateValues(List<String> dateValues): Extracts only the year from a full date (e.g., "2022-05-10" → "2022"). 
+
+  
 
 4. Filemerger.java: The Filemerger class is responsible for reading and merging data from multiple file formats (CSV, Excel, Text, JSON) and writing the merged data to a new output file (merged_data.txt).
 
@@ -244,7 +277,8 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 	readExcelFile() → Extracts data from Excel using Apache POI.
 	readTextFile() → Reads tab-separated text files using BufferedReader.
 	readJSONFile() → Parses JSON data using Jackson.
-3. writeMergedFile()
+
+4. writeMergedFile()
 
 	Logs all processed files.
 	Writes merged data to merged_data.txt.
