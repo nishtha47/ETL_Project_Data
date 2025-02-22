@@ -205,10 +205,10 @@ ________________________________________
    
 	1. Class-Level Variables
     
-		request: Stores the RestAssured request specification.
-		response: Stores the API response.
-		apiEndpoint: The base API URL, loaded from a properties file.
-		isbn: Stores the ISBN of the book being queried.
+			request: Stores the RestAssured request specification.
+			response: Stores the API response.
+			apiEndpoint: The base API URL, loaded from a properties file.
+			isbn: Stores the ISBN of the book being queried.
 
 	3. Initialization & Configuration
     
@@ -217,15 +217,15 @@ ________________________________________
 
         3. Step Definitions
            
-			Given Steps
+				Given Steps
 				@Given("a book exists with an isbn of {string}")
 					Sets up a request for a valid book with the given ISBN.
 				@Given("no book exists with an isbn of {string}")
 					Sets up a request for an invalid ISBN to test negative scenarios.
-			When Steps
+				When Steps
 				@When("a user retrieves the book by isbn")
 					Sends a GET request to fetch book details using ISBN.
-			Then Steps
+				Then Steps
 				@Then("the status code is {int}")
 					Verifies the response status code.
 				@Then("response includes the following")
@@ -271,12 +271,13 @@ ________________________________________
 	Checks for existing files (patient.csv, patient.xls, patient.txt, patient.json).
 	Calls corresponding methods (readCSVFile, readExcelFile, etc.).
 	Collects data in a list (mergedData).
+ 
 2. File-Specific Methods:
 
-	readCSVFile() → Reads data using OpenCSV.
-	readExcelFile() → Extracts data from Excel using Apache POI.
-	readTextFile() → Reads tab-separated text files using BufferedReader.
-	readJSONFile() → Parses JSON data using Jackson.
+		readCSVFile() → Reads data using OpenCSV.
+		readExcelFile() → Extracts data from Excel using Apache POI.
+		readTextFile() → Reads tab-separated text files using BufferedReader.
+		readJSONFile() → Parses JSON data using Jackson.
 
 4. writeMergedFile()
 
@@ -294,31 +295,37 @@ ________________________________________
 
 8. config.properties : The config.properties file stores the API endpoint URL for fetching book details using ISBN from the Google Books API.  
 
-9.	TestRunner.java : This file is for executing test where  path of the feature file and step definition file is mentioned.
+9. TestRunner.java : This file is for executing test where  path of the feature file and step definition file is mentioned.
 
 ________________________________________
+
 **Getting Started**
+
 Prerequisites
+
 Before running the tests, ensure you have the following installed:
 
-Java 11+ (Ensure JAVA_HOME is set)
-Maven (For dependency management)
-Cucumber (Integrated with JUnit/TestNG)
-Selenium WebDriver (For UI-based data validation)
-Database Connectivity (For DB-related validation)
-Test Data Source (Excel, CSV, JSON, or API endpoints)
+	Java 11+ (Ensure JAVA_HOME is set)
+	Maven (For dependency management)
+	Cucumber (Integrated with JUnit/TestNG)
+	Selenium WebDriver (For UI-based data validation)
+	Test Data Source (Excel, CSV, JSON, or API endpoints)
 
 2. Maven Project Setup
-Create and set up a Maven project with the following steps:
-1.	Generate the Maven Project:
-•	Use an IDE (e.g., IntelliJ IDEA, Eclipse) or the terminal:
-•	Create a Maven Project <cucumber-maven>
-•	Navigate to the project directory.
-•	Add package <featuretest>  at  src/test/java level.
-•	Add package <runnerFiles> at  src/test/java level
-•	Add package <stepDefinitions> at src/test/java level
+   
+	Create and set up a Maven project with the following steps:
+
+   		 Generate the Maven Project:
+			Use an IDE (e.g., IntelliJ IDEA, Eclipse) or the terminal:
+			Create a Maven Project <cucumber-maven>
+			Navigate to the project directory.
+			Add package <featuretest>  at  src/test/java level.
+			Add package <runnerFiles> at  src/test/java level
+			Add package <stepDefinitions> at src/test/java level
 
 2.	Add Dependencies to pom.xml: Add the required dependencies for Cucumber, extentreport, Restassured and log4j
+
+   ________________________________________
 
 **Pom.xml**
 
@@ -536,7 +543,7 @@ Create and set up a Maven project with the following steps:
   </build>
 </project>
 
-
+________________________________________
 
 3.	Create Feature  file under src\test\java\cucumber_maven\featurestest\
 
@@ -546,39 +553,40 @@ Create and set up a Maven project with the following steps:
 
 6.	create utils file under src\main\java\cucumber_maven_utils
 
-7.	create prperties and test data files under src\main\java\resources
+7.	create properties and test data files under src\main\java\resources
 
 8.	Create a TestRunner file under src\test\java\runnerFiles
 
-		1.Mention path of feature file where it is placed under @CucumberOptions
+   		1. Mention path of feature file where it is placed under @CucumberOptions
 		2.In glue mention stepDefinitions file
 		3.Add plugin for cucumber reporting
 
-package runnerFiles;
+		package runnerFiles;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
+		import io.cucumber.testng.AbstractTestNGCucumberTests;
 
-import io.cucumber.testng.CucumberOptions;
+		import io.cucumber.testng.CucumberOptions;
 
 
-@CucumberOptions (features = {"src/test/java/cucumber_maven/featurestest"},
-        glue = {"stepDefinitions"},
-       // tags = "@tag1",
-        plugin = {"pretty", "html: target/cucumber-reports.html"},
-       monochrome = true
-)
+		@CucumberOptions (features = {"src/test/java/cucumber_maven/featurestest"},
+        		glue = {"stepDefinitions"},
+      		 // tags = "@tag1",
+        		plugin = {"pretty", "html: target/cucumber-reports.html"},
+       		monochrome = true
+		)
 
-public class TestRunner extends AbstractTestNGCucumberTests {
+		public class TestRunner extends AbstractTestNGCucumberTests {
 	
 
 
-}
+		}
 
 
 7.	**Build the Project**: Run the following command to download dependencies and build the project:
-      		mvn clean install 
+   
+      				mvn clean install 
   
-8.  **Input Files Setup**
+9.  **Input Files Setup**
 
      Create patient.csv,patient.json,patient.xls and patient.txt files with column details
 
