@@ -210,7 +210,7 @@ ________________________________________
 			- apiEndpoint: The base API URL, loaded from a properties file.
 			- isbn: Stores the ISBN of the book being queried.
 
-	3. Initialization & Configuration
+	2. Initialization & Configuration
     
 		The constructor BookStepDefinitions() loads API properties from config.properties.
 		loadProperties(): Reads the API base URL from the properties file.
@@ -238,7 +238,7 @@ ________________________________________
 
   
 
-4. Filemerger.java: The Filemerger class is responsible for reading and merging data from multiple file formats (CSV, Excel, Text, JSON) and writing the merged data to a new output file (merged_data.txt).
+4. **Filemerger.java**: The Filemerger class is responsible for reading and merging data from multiple file formats (CSV, Excel, Text, JSON) and writing the merged data to a new output file (merged_data.txt).
 
     **Key Features**
    
@@ -299,7 +299,7 @@ ________________________________________
 
 ________________________________________
 
-##Getting Started##
+## Getting Started
 
 **Prerequisites**
 
@@ -582,11 +582,11 @@ ________________________________________
 		}
 
 
-7.	##Build the Project##: Run the following command to download dependencies and build the project:
+7.	## Build the Project: Run the following command to download dependencies and build the project:
    
       				mvn clean install 
   
-9.  ##Input Files Setup##
+9.  ## Input Files Setup
 
      Create patient.csv,patient.json,patient.xls and patient.txt files with column details
 
@@ -596,7 +596,7 @@ ________________________________________
     - claim amount
   
 
-11.  ##Running the Tests##
+11.  ## Running the Tests
         Run the Cucumber tests using your IDE or the Maven command or using testNG :
                   Mvn test
 
