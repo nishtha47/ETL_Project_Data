@@ -17,7 +17,7 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 
 **Scenario Breakdown**
 
- *Validate Missing Patient Data*
+✅ Scenario 1: *Validate Missing Patient Data*
  
    Purpose: Ensures that no mandatory fields are missing and that claim amounts are valid.
    
@@ -28,7 +28,7 @@ The feature ensures merged patient data is clean, accurate, and meets specific v
 		3.Verify that all required fields exist and claim amounts are valid
 	📌 Expectation: No missing fields, and all claim amounts must be valid.
  
-   *Validate PatientID Uniqueness*
+✅ Scenario 2:*Validate PatientID Uniqueness*
    
 Purpose: Ensures that every patient has a unique PatientID.
  
@@ -38,7 +38,7 @@ Purpose: Ensures that every patient has a unique PatientID.
 		Check for duplicate entries
 	📌 Expectation: No duplicate PatientIDs should exist.
  
-   *Validate PatientName Length*
+✅ Scenario 3:*Validate PatientName Length*
    
  Purpose: Ensures that patient names have a reasonable length (not too short or too long).
  
@@ -48,7 +48,7 @@ Purpose: Ensures that every patient has a unique PatientID.
 			Check if it is shorter than 2 characters or longer than 50 characters
 	📌 Expectation: Patient names must be between 2 and 50 characters.
  
-*Validate PatientName Contains No Special Characters*
+✅ Scenario 4:*Validate PatientName Contains No Special Characters*
 
  Purpose: Ensures PatientName only contains alphabetic characters (no special symbols like @, $, %, &, etc.).
  
@@ -58,7 +58,7 @@ Purpose: Ensures that every patient has a unique PatientID.
 		Apply regex validation to check for special characters
 	📌 Expectation: No patient name should contain special characters.
  
-*Validate ClaimAmount Greater Than Zero*
+✅ Scenario 5:*Validate ClaimAmount Greater Than Zero*
 
  Purpose: Ensures that ClaimAmount is always greater than zero.
  
@@ -68,7 +68,7 @@ Purpose: Ensures that every patient has a unique PatientID.
 			Check if ClaimAmount <= 0
 	📌 Expectation: All claim amounts should be greater than zero.
  
-*Validate ClaimAmount Not an Outlier*
+✅ Scenario 6:*Validate ClaimAmount Not an Outlier*
 
 Purpose: Prevents unrealistically high claim amounts.
 
@@ -78,7 +78,7 @@ Purpose: Prevents unrealistically high claim amounts.
 			Check if ClaimAmount > 1,000,000
 	📌 Expectation: No claim amount should exceed 1,000,000.
  
-*Validate ClaimAmount Logic for Specific ClaimID*
+✅ Scenario 7:*Validate ClaimAmount Logic for Specific ClaimID*
 
  Purpose: Ensures that ClaimAmount rules are followed for specific ClaimID values.
  
@@ -88,7 +88,7 @@ Purpose: Prevents unrealistically high claim amounts.
 			If ClaimID starts with "A", ensure ClaimAmount >= $1000
 	📌 Expectation: If a ClaimID starts with "A", the corresponding ClaimAmount must be at least $1000.
 
- *Validate ClaimID Format*
+✅ Scenario 8: *Validate ClaimID Format*
  
  Purpose: Ensures that ClaimIDs have a valid format.
  
@@ -106,7 +106,7 @@ Purpose: Prevents unrealistically high claim amounts.
 	Failures are logged for debugging.
 ________________________________________
 
-2.	ApiResponse.feature: The ApiResponse.feature file is part of a Cucumber-based API testing framework that validates the response of a web service retrieving book details by ISBN. It ensures that API responses are accurate, structured correctly, and follow expected  business logic.
+2. ApiResponse.feature: The ApiResponse.feature file is part of a Cucumber-based API testing framework that validates the response of a web service retrieving book details by ISBN. It ensures that API responses are accurate, structured correctly, and follow expected  business logic.
 
    **Feature: Get Book by ISBN**
    
@@ -305,23 +305,23 @@ Prerequisites
 
 Before running the tests, ensure you have the following installed:
 
-	Java 11+ (Ensure JAVA_HOME is set)
-	Maven (For dependency management)
-	Cucumber (Integrated with JUnit/TestNG)
-	Selenium WebDriver (For UI-based data validation)
-	Test Data Source (Excel, CSV, JSON, or API endpoints)
+	-Java 11+ (Ensure JAVA_HOME is set)
+	-Maven (For dependency management)
+	-Cucumber (Integrated with JUnit/TestNG)
+	-Selenium WebDriver (For UI-based data validation)
+	-Test Data Source (Excel, CSV, JSON, or API endpoints)
 
 2. Maven Project Setup
    
 	Create and set up a Maven project with the following steps:
 
    		 Generate the Maven Project:
-			Use an IDE (e.g., IntelliJ IDEA, Eclipse) or the terminal:
-			Create a Maven Project <cucumber-maven>
-			Navigate to the project directory.
-			Add package <featuretest>  at  src/test/java level.
-			Add package <runnerFiles> at  src/test/java level
-			Add package <stepDefinitions> at src/test/java level
+			-Use an IDE (e.g., IntelliJ IDEA, Eclipse) or the terminal:
+			-Create a Maven Project <cucumber-maven>
+			-Navigate to the project directory.
+			-Add package <featuretest>  at  src/test/java level.
+			-Add package <runnerFiles> at  src/test/java level
+			-Add package <stepDefinitions> at src/test/java level
 
 2.	Add Dependencies to pom.xml: Add the required dependencies for Cucumber, extentreport, Restassured and log4j
 
