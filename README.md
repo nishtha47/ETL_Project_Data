@@ -3,9 +3,9 @@
 
 This repository contains automated data validation scenarios implemented using the Cucumber framework. The tests ensure data accuracy, consistency, and integrity across various use cases. The framework is built using Java, Selenium, Cucumber, and TestNG/JUnit, along with data handling utilities for robust validation.
 
-Feature File 1: Data Validation Scenarios after Merging 3 Files into One 
+## Feature File 1: Data Validation Scenarios after Merging 3 Files into One 
 
-Feature File 2: Validating the API Response data using cucumber framework
+## Feature File 2: Validating the API Response data using cucumber framework
 
 ________________________________________
 
