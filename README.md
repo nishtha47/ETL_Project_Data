@@ -9,7 +9,7 @@ This repository contains automated data validation scenarios implemented using t
 
 ________________________________________
 
-**Project Components**
+## Project Components
 1.	MergeClaims.feature: The MergeClaims.feature file is part of a Cucumber-based data validation framework. It validates merged patient claim data by ensuring correctness, completeness, and adherence to business rules.
 
     **Feature: Data Validation**
