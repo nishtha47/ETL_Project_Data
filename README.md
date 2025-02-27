@@ -291,7 +291,7 @@ ________________________________________
 
 5. **Logbook.java**: The Logbook class is a utility for logging messages, step start/end events, and errors using SLF4J (Simple Logging Facade for Java) to standardize logging in a test automation framework.
    
-7. **Claim.java**: The Claim class is an immutable model representing a patient's medical claim, ensuring data integrity with validations and supporting XML serialization via @XmlRootElement and @XmlElement annotations.
+7. **Claim.java**: The Claim class represents a medical claim made by a patient, encapsulating the patient's ID, name, claim ID, and claim amount, with validation to ensure the values are valid.
 
 8. **config.properties** : The config.properties file stores the API endpoint URL for fetching book details using ISBN from the Google Books API.  
 
